@@ -95,7 +95,7 @@ const Index = () => {
 
   return (
     <div>
-      <h1>Tic toc toe</h1>
+      <h1>Tic Tac Toe</h1>
       <p>Result: {winner}</p>
       <p>{winner && <a href='#' onClick={restart}>Restablecer</a>}</p>
       <div>

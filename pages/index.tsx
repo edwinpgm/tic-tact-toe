@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { Game } from '../components/Game'
 import { Tabs } from '../components/Tabs'
-import utilStyles from '../styles/utils.module.scss'
 
 const Index = () => {
   const TAB_OPTIONS = [
@@ -27,7 +26,7 @@ const Index = () => {
       <Head>
         <title>Game Tic Tac Toe</title>
       </Head>
-      <h1 className={utilStyles.title}>Tic Tac Toe</h1>
+      <h1>Tic Tac Toe</h1>
       <Tabs options={TAB_OPTIONS} onChange={setMode} />
 
       <div>

@@ -1,0 +1,16 @@
+{
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
+  "standard.enable": true,
+  "standard.run": "onSave",
+  "standard.validate": ["typescript", "typescriptreact"],
+  "standard.engine": "ts-standard",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "editor.formatOnSave": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "[typescriptreact, typescript]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode"
+  }
+}

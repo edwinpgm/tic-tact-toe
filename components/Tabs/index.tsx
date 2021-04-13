@@ -1,12 +1,17 @@
 import React from 'react'
 
-const Tab = ({label, onChange}) => {
+const Tab: React.FC = ({ label, onChange }) => {
   return (
     <button onClick={onChange}>{label}</button>
   )
 }
 
-export const Tabs = ({options, onChange}) => {
+interface Props {
+  options: []
+  onChange: (string) => void
+}
+
+export const Tabs: React.FC<Props> = ({ options, onChange }) => {
   return (
     <div>
       {options.map(item => (

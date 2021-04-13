@@ -1,0 +1,14 @@
+.Squares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  padding: 30px;
+  background-color: #363752;
+  border-radius: 6px;
+}
+.Winner {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}

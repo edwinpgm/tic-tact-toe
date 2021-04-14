@@ -5,27 +5,15 @@ import { Square } from '../Square'
 import Styles from './Game.module.scss'
 
 export const Game: React.FC = () => {
-  // const TAB_OPTIONS = [
-  //   { id: 'vs', label: '👾 VS' },
-  //   { id: 'bot', label: '🤖 bot' }
-  // ]
-
-  // const [mode, setMode] = useState('vs')
-  const [players, setPlayers] = useState(['', ''])
-
+  const [players, setPlayers] = useState(['Ana', 'Salvador'])
   const [squares, setSquares] = useState(Array(9).fill(null))
   const nextValue = calculateNextValue(squares)
   const winner = calculateWinner(squares, players)
 
-  // useEffect(() => {
-  //   if (mode === 'bot') {
-  //     setPlayer2('🤖 bot')
-  //   } else {
-  //     setPlayer2('')
-  //   }
-  // }, [mode])
-
   const selectSquare = (position: number): void => {
+    if (winner !== '-') {
+      return false
+    }
     const squaresCopy = [...squares]
     squaresCopy[position] = nextValue
     setSquares(squaresCopy)
@@ -33,8 +21,6 @@ export const Game: React.FC = () => {
 
   return (
     <div>
-      {/* <Tabs options={TAB_OPTIONS} onChange={setMode} /> */}
-
       <div className={Styles.Winner}>Winner: {winner}</div>
 
       <div className={Styles.Squares}>
@@ -62,6 +48,7 @@ export const Game: React.FC = () => {
       </div>
 
       <Players
+        players={players}
         onChange={setPlayers}
       />
     </div>

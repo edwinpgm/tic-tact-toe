@@ -4,11 +4,12 @@ import Styles from './Players.module.scss'
 
 interface Props {
   onChange: (arr: any[]) => void
+  players: string[]
 }
 
-export const Players: React.FC<Props> = ({ onChange }) => {
-  const [player1, setPlayer1] = useState('')
-  const [player2, setPlayer2] = useState('')
+export const Players: React.FC<Props> = ({ onChange, players }) => {
+  const [player1, setPlayer1] = useState(players[0])
+  const [player2, setPlayer2] = useState(players[1])
 
   const handlePlayer1 = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setPlayer1(event.target.value)
@@ -22,15 +23,15 @@ export const Players: React.FC<Props> = ({ onChange }) => {
 
   return (
     <div className={Styles.Container}>
-      <div className={Styles.PlayerLeft}>
-        <div className={Styles.PlayerImage}>
+      <div className={Styles.Player}>
+        <div className={Styles.PlayerLeftImage}>
           <Image
-            src='/x.svg'
+            src='/x.png'
             height={20}
             width={20}
           />
         </div>
-        <div className={Styles.Player}>
+        <div className={Styles.PlayerInput}>
           <label htmlFor='player1' className={Styles.Label}>Player 1</label>
           <input
             value={player1}
@@ -42,8 +43,8 @@ export const Players: React.FC<Props> = ({ onChange }) => {
           />
         </div>
       </div>
-      <div className={Styles.PlayerRight}>
-        <div>
+      <div className={Styles.Player}>
+        <div className={Styles.PlayerInput}>
           <label htmlFor='player2' className={Styles.Label}>Player 2</label>
           <input
             value={player2}
@@ -54,9 +55,9 @@ export const Players: React.FC<Props> = ({ onChange }) => {
             className={Styles.Input}
           />
         </div>
-        <div className={Styles.PlayerImage}>
+        <div className={Styles.PlayerRightImage}>
           <Image
-            src='/o.svg'
+            src='/o.png'
             height={20}
             width={20}
           />

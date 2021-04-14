@@ -5,12 +5,12 @@ import { Square } from '../Square'
 import Styles from './Game.module.scss'
 
 export const Game: React.FC = () => {
-  const TAB_OPTIONS = [
-    { id: 'vs', label: '👾 VS' },
-    { id: 'bot', label: '🤖 bot' }
-  ]
+  // const TAB_OPTIONS = [
+  //   { id: 'vs', label: '👾 VS' },
+  //   { id: 'bot', label: '🤖 bot' }
+  // ]
 
-  const [mode, setMode] = useState('vs')
+  // const [mode, setMode] = useState('vs')
   const [players, setPlayers] = useState([])
 
   const [squares, setSquares] = useState(Array(9).fill(null))
@@ -68,14 +68,14 @@ export const Game: React.FC = () => {
   )
 }
 
-const calculateNextValue = (squares: [number]): string => {
+const calculateNextValue = (squares): string => {
   const xSquaresCount = squares.filter(s => s === 'X').length
   const oSquaresCount = squares.filter(s => s === 'O').length
 
   return xSquaresCount === oSquaresCount ? 'X' : 'O'
 }
 
-const calculateWinner = (squares: [number], players): [] => {
+const calculateWinner = (squares, players): [] => {
   const winnerOptions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -84,13 +84,13 @@ const calculateWinner = (squares: [number], players): [] => {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6],
+    [2, 4, 6]
   ]
 
   for (let i = 0; i < winnerOptions.length; i++) {
     const [a, b, c] = winnerOptions[i]
 
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+    if (squares[a] != null && squares[a] === squares[b] && squares[a] === squares[c]) {
       console.log(squares[a])
       return squares[a] === 'X' ? players[0] : squares[a] === 'O' ? players[1] : null
     }

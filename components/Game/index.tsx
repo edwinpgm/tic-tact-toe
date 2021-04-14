@@ -11,7 +11,7 @@ export const Game: React.FC = () => {
   // ]
 
   // const [mode, setMode] = useState('vs')
-  const [players, setPlayers] = useState([])
+  const [players, setPlayers] = useState(['', ''])
 
   const [squares, setSquares] = useState(Array(9).fill(null))
   const nextValue = calculateNextValue(squares)
@@ -68,14 +68,14 @@ export const Game: React.FC = () => {
   )
 }
 
-const calculateNextValue = (squares): string => {
+const calculateNextValue = (squares: any[]): string => {
   const xSquaresCount = squares.filter(s => s === 'X').length
   const oSquaresCount = squares.filter(s => s === 'O').length
 
   return xSquaresCount === oSquaresCount ? 'X' : 'O'
 }
 
-const calculateWinner = (squares, players): [] => {
+const calculateWinner = (squares: any[], players: string[]): string|null => {
   const winnerOptions = [
     [0, 1, 2],
     [3, 4, 5],

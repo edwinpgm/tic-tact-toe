@@ -12,5 +12,8 @@
   "typescript.referencesCodeLens.enabled": true,
   "[typescriptreact, typescript]": {
     "editor.defaultFormatter": "numso.prettier-standard-vscode"
-  }
+  },
+  "cSpell.words": [
+    "tictoctoe"
+  ]
 }

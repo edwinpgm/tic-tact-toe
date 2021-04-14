@@ -1,14 +1,23 @@
 import React from 'react'
 
-const Tab: React.FC = ({ label, onChange }) => {
+interface PropsTab {
+  label?: string
+  onChange?: (e: React.MouseEvent) => void
+}
+
+const Tab: React.FC<PropsTab> = ({ label, onChange }) => {
   return (
     <button onClick={onChange}>{label}</button>
   )
 }
 
+interface TabType {
+  id: string
+}
+
 interface Props {
-  options: []
-  onChange: (string) => void
+  options: [TabType]
+  onChange: (id: string) => void
 }
 
 export const Tabs: React.FC<Props> = ({ options, onChange }) => {

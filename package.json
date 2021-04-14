@@ -16,7 +16,8 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "build": "next build"
   },
   "author": "",
   "license": "ISC"

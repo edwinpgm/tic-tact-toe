@@ -2,16 +2,20 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import Styles from './Players.module.scss'
 
-export const Players: React.FC = ({ onChange }) => {
+interface Props {
+  onChange: (arr: any[]) => void
+}
+
+export const Players: React.FC<Props> = ({ onChange }) => {
   const [player1, setPlayer1] = useState('')
   const [player2, setPlayer2] = useState('')
 
-  const handlePlayer1 = (event): void => {
+  const handlePlayer1 = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setPlayer1(event.target.value)
     onChange([event.target.value, player2])
   }
 
-  const handlePlayer2 = (event): void => {
+  const handlePlayer2 = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setPlayer2(event.target.value)
     onChange([player1, event.target.value])
   }

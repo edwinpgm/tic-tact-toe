@@ -11,12 +11,11 @@ export const Game: React.FC = () => {
   const winner = calculateWinner(squares, players)
 
   const selectSquare = (position: number): void => {
-    if (winner !== '-') {
-      return false
+    if (winner === '-') {
+      const squaresCopy = [...squares]
+      squaresCopy[position] = nextValue
+      setSquares(squaresCopy)
     }
-    const squaresCopy = [...squares]
-    squaresCopy[position] = nextValue
-    setSquares(squaresCopy)
   }
 
   return (
